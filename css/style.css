@@ -30,6 +30,18 @@ a {
   a:hover {
     text-decoration: none; }
 
+
+.logo-container img
+{
+ 
+  display: block;
+  width: 100px; height: 100px;
+
+}
+
+
+
+
 .text-black {
   color: #000 !important; }
 
