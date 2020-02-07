@@ -124,34 +124,65 @@
           <div class="col-md-12 col-lg-8 mb-5">
           
             
-          
-            <form action="#" class="p-5 bg-white">
+
+            <form name="contact" method="POST" data-netlify="true">
+              <p>
+                <label>Your Name: <input type="text" name="name" /></label>   
+              </p>
+              <p>
+                <label>Your Email: <input type="email" name="email" /></label>
+              </p>
+              <p>
+                <label>Your Role: <select name="role[]" multiple>
+                  <option value="leader">Leader</option>
+                  <option value="follower">Follower</option>
+                </select></label>
+              </p>
+              <p>
+                <label>Message: <textarea name="message"></textarea></label>
+              </p>
+              <p>
+                <button type="submit">Send</button>
+              </p>
+            </form>
+
+           
+            <form action="https://formspree.io/mzbenzyq" target="_blank" method="POST">
+              <input type="text" name="name">
+              <input type="email" name="_replyto">
+              <input type="submit" value="Send">
+            </form>
+            
+
+
+            <form action="https://formspree.io/mzbenzyq" target="_blank" method="POST">
+              <input type="text" name="name">
+              <input type="email" name="_replyto">
+              <input type="submit" value="Send">
+            </form>
+
+
+            <form action="https://formspree.io/mzbenzyq" method="POST"   target="_blank" class="p-5 bg-white">
 
               <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" for="fullname">Nombre</label>
-                  <input type="text" id="fullname" class="form-control" placeholder="Tu nombre">
+                  <input type="text" name="name" class="form-control" placeholder="Tu nombre">
                 </div>
               </div>
               <div class="row form-group">
                 <div class="col-md-12">
                   <label class="font-weight-bold" for="email">Email</label>
-                  <input type="email" id="email" class="form-control" placeholder="Cuenta de Email ">
+                  <input type="email" name="_replyto" class="form-control" placeholder="Cuenta de Email ">
                 </div>
               </div>
 
 
-              <div class="row form-group">
-                <div class="col-md-12 mb-3 mb-md-0">
-                  <label class="font-weight-bold" for="phone">Teléfono</label>
-                  <input type="text" id="phone" class="form-control" placeholder="Nº Telefono">
-                </div>
-              </div>
 
               <div class="row form-group">
                 <div class="col-md-12">
                   <label class="font-weight-bold" for="message">Mensaje</label> 
-                  <textarea name="message" id="message" cols="30" rows="5" class="form-control" placeholder="Escribenos tus dudas"></textarea>
+                  <textarea name="message"  cols="30" rows="5" class="form-control" placeholder="Escribenos tus dudas"></textarea>
                 </div>
               </div>
 
@@ -186,6 +217,70 @@
     </div>
 
     
+
+    <form id="my-form"
+    action="https://formspree.io/mzbenzyq"
+    method="POST"
+  >
+    <label>Email:</label>
+    <input type="email" name="email" />
+    <label>Message:</label>
+    <input type="text" name="message" />
+    <button id="my-form-button">Submit</button>
+    <p id="my-form-status"></p>
+  </form>
+  
+  <!-- Place this script at the end of the body tag -->
+  
+  <script>
+    window.addEventListener("DOMContentLoaded", function() {
+  
+      // get the form elements defined in your form HTML above
+      
+      var form = document.getElementById("my-form");
+      var button = document.getElementById("my-form-button");
+      var status = document.getElementById("my-form-status");
+  
+      // Success and Error functions for after the form is submitted
+      
+      function success() {
+        form.reset();
+        button.style = "display: none ";
+        status.innerHTML = "Thanks!";
+      }
+  
+      function error() {
+        status.innerHTML = "Oops! There was a problem.";
+      }
+  
+      // handle the form submission event
+  
+      form.addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        var data = new FormData(form);
+        ajax(form.method, form.action, data, success, error);
+      });
+    });
+    
+    // helper function for sending an AJAX request
+  
+    function ajax(method, url, data, success, error) {
+      var xhr = new XMLHttpRequest();
+      xhr.open(method, url);
+      xhr.setRequestHeader("Accept", "application/json");
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState !== XMLHttpRequest.DONE) return;
+        if (xhr.status === 200) {
+          success(xhr.response, xhr.responseType);
+        } else {
+          error(xhr.status, xhr.response, xhr.responseType);
+        }
+      };
+      xhr.send(data);
+    }
+  </script>
+
+
 
     <footer class="site-footer">
       <div class="container">
