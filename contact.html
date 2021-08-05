@@ -33,9 +33,37 @@
     <link rel="stylesheet" href="css/aos.css">
 
     <link rel="stylesheet" href="css/style.css">
+
+
+
+    <script>
+      function disableSubmit() {
+       document.getElementById("submit").disabled = true;
+      }
+     
+       function activateButton(element) {
+     
+           if(element.checked) {
+             document.getElementById("submit").disabled = false;
+            }
+            else  {
+             document.getElementById("submit").disabled = true;
+           }
+     
+       }
+     </script>
+
+
+
+
+
+
+
+
+
     
   </head>
-  <body style="background-image: url('images/bg.jpg');">
+  <body onload="disableSubmit()"  style="background-image: url('images/bg.jpg');">
   
   <div class="site-wrap">
 
@@ -188,9 +216,23 @@
                 </div>
               </div>
 
+              <label class="uk-width-1-1" style="display: block;"> 
+                Protección de datos personales <br>
+                Utilizaremos sus datos para responder consultas, enviar comunicaciones comerciales y realizar análisis estadísticos.
+                Para más información sobre el tratamiento y sus derechos, consulte la <a href="privacidad.html" target="_blank">política de privacidad</a> 
+                <br>
+                <input class="" type="checkbox" name="privacidad" id="terms" onchange="activateButton(this)"> Acepto el tratamiento de datos para enviar comunicaciones comerciales
+                
+              </label> 
+
+         
+
+
+
+
               <div class="row form-group">
                 <div class="col-md-12">
-                  <input type="submit" value="Enviar" class="btn btn-primary text-white px-4 py-2">
+                  <input type="submit" id="submit" value="Enviar" class="btn btn-primary text-white px-4 py-2">
                 </div>
               </div>
 
@@ -251,11 +293,11 @@
       function success() {
         form.reset();
         button.style = "display: none ";
-        status.innerHTML = "Thanks!";
+        status.innerHTML = "Gracias";
       }
   
       function error() {
-        status.innerHTML = "Oops! There was a problem.";
+        status.innerHTML = "Error , ha habiado algun problema.";
       }
   
       // handle the form submission event
@@ -286,71 +328,144 @@
   </script>
 
 
-
 <footer class="site-footer">
   <div class="container">
-    
-
     <div class="row">
       <div class="col-md-4">
         <h3 class="footer-heading mb-4 text-white">Contactar</h3>
-        <p>En el Gimnasio Escuela Omnihum en Redondela, te encontrarás un ambiente familiar y deportivo y dedicación personalizada a cargo de grandes profesionales titulados.</p>
+        <p>
+          En el Gimnasio Escuela Omnihum en Redondela, te encontrarás un
+          ambiente familiar y deportivo y dedicación personalizada a cargo
+          de grandes profesionales titulados.
+        </p>
         <p>Dirección: Rúa da Picota, 21, Bajo, 36800 Redondela</p>
-        <p>  Email: omnihum@omnihum.es</p>
-        <p> Teléfono: 986 40 33 94</p>
-        <p><a href="contact.html" class="btn btn-primary rounded text-white px-4">Contactar</a></p>
+        <p>Email: omnihum@omnihum.es</p>
+        <p>Teléfono: 986 40 33 94</p>
+        <p>
+          <a
+            href="contact.html"
+            class="btn btn-primary rounded text-white px-4"
+            >Contactar</a
+          >
+        </p>
       </div>
       <div class="col-md-5 ml-auto">
         <div class="row">
           <div class="col-md-6">
-            <h3 class="footer-heading mb-4 text-white">Menu rapido </h3>
-              <ul class="list-unstyled">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="entrenadores.html">Profesores</a></li>
-                <li><a href="about.html">Nosotros</a></li>
-                <li><a href="noticias.html">Noticias</a></li>
-                <li><a href="contact.html">Contacto</a></li>
-                
-              </ul>
+            <h3 class="footer-heading mb-4 text-white">Menu rapido</h3>
+            <ul class="list-unstyled">
+              <li><a href="index.html">Inicio</a></li>
+              <li><a href="entrenadores.html">Profesores</a></li>
+              <li><a href="about.html">Nosotros</a></li>
+              <li><a href="noticias.html">Noticias</a></li>
+              <li><a href="contact.html">Contacto</a></li>
+            </ul>
           </div>
           <div class="col-md-6">
             <h3 class="footer-heading mb-4 text-white">Clases</h3>
-              <ul class="list-unstyled">
-                <li><a href="clases.html#Taekwondo">Taekwondo</a></li>
-                <li><a href="clases.html#Boxeo">Boxeo</a></li>      
-                <li><a href="clases.html#Pilates">Pilates</a></li>
-                      <li><a href="clases.html#Gap">Gap</a></li>
-                      <li><a href="clases.html#Lian">Lian Gong</a></li>
-                      <li><a href="clases.html#Defensa">Defensa Personal</a></li>
-                      <li><a href="clases.html#Gimnasia">Gimnasia</a></li>
-              </ul>
+            <ul class="list-unstyled">
+              <li><a href="clases.html#Taekwondo">Taekwondo</a></li>
+              <li><a href="clases.html#Boxeo">Boxeo</a></li>
+              <li><a href="clases.html#Pilates">Pilates</a></li>
+              <li><a href="clases.html#Gap">Gap</a></li>
+              <li><a href="clases.html#Lian">Lian Gong</a></li>
+              <li><a href="clases.html#Defensa">Defensa Personal</a></li>
+              <li><a href="clases.html#Gimnasia">Gimnasia</a></li>
+            </ul>
           </div>
         </div>
       </div>
 
-      
       <div class="col-md-2">
-        <div class="col-md-12"><h3 class="footer-heading mb-4 text-white">Nuestras redes</h3></div>
-          <div class="col-md-12">
-            <p>
-              <a href="https://www.facebook.com/g.e.omnihum/" class="pb-2 pr-2 pl-0"><span class="icon-facebook"></span></a>
-             <!-- <a href="#" class="p-2"><span class="icon-twitter"></span></a>-->
-              <a href="https://www.instagram.com/g.e.omnihum/" class="p-2"><span class="icon-instagram"></span></a>
-             <!-- <a href="#" class="p-2"><span class="icon-vimeo"></span></a>-->
-
-            </p>
-          </div>
+        <div class="col-md-12">
+          <h3 class="footer-heading mb-4 text-white">Nuestras redes</h3>
+        </div>
+        <div class="col-md-12">
+          <p>
+            <a
+              href="https://www.facebook.com/g.e.omnihum/"
+              class="pb-2 pr-2 pl-0"
+              ><span class="icon-facebook"></span
+            ></a>
+            <!-- <a href="#" class="p-2"><span class="icon-twitter"></span></a>-->
+            <a href="https://www.instagram.com/g.e.omnihum/" class="p-2"
+              ><span class="icon-instagram"></span
+            ></a>
+            <!-- <a href="#" class="p-2"><span class="icon-vimeo"></span></a>-->
+          </p>
+        </div>
       </div>
     </div>
-    <div class="row pt-5 mt-5 text-center">
+
+    <div class="row">
+      <div class="logo" style="padding-right: 10px">
+        <a href="index.html"
+          ><img
+            src="images/pontevedra.jpg"
+            alt="Diputacion Pontevedra"
+            width="150"
+            height="60"
+        /></a>
+      </div>
+
+      <div class="logo" style="padding-right: 10px">
+        <a href="index.html"
+          ><img
+            src="images/xunta.png"
+            alt="Xunta Galicia"
+            width="150"
+            height="60"
+        /></a>
+      </div>
+
+      <div class="logo" style="padding-right: 10px">
+        <a href="index.html"
+          ><img
+            src="images/deporte.jpg"
+            alt="Deporte Galego"
+            width="150"
+            height="60"
+        /></a>
+      </div>
+
+      <div class="logo" style="padding-right: 10px">
+        <a href="index.html"
+          ><img src="images/redondela.png" alt="Redondela width="60"
+          height="60"></a
+        >
+      </div>
+    </div>
+
+    <div class="row pt-3 mt-3 text-center">
       <div class="col-md-12">
         <p>
-        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-        Copyright &copy; <script>document.write(new Date().getFullYear());</script> All Rights Reserved | Designed by <a href="https://rubendelaiglesiapregal.es/" target="_blank" >Ruben de la Iglesia</a>   | Templeate by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
-        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          <a href="legal.html" target="_blank">Aviso Legal</a> |
+          <a href="privacidad.html" target="_blank"
+            >Política de Privacidad
+          </a>
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
         </p>
       </div>
-      
+    </div>
+
+    <div class="row pt-2 mt-2 text-center">
+      <div class="col-md-12">
+        <p>
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          Copyright &copy;
+          <script>
+            document.write(new Date().getFullYear());
+          </script>
+          All Rights Reserved | Designed by
+          <a href="https://rubendelaiglesiapregal.es/" target="_blank"
+            >Ruben de la Iglesia</a
+          >
+          | Templeate by
+          <a href="https://colorlib.com" target="_blank">Colorlib</a>
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        </p>
+      </div>
     </div>
   </div>
 </footer>
